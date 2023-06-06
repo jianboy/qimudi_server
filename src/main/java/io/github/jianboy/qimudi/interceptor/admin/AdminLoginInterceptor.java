@@ -39,7 +39,7 @@ public class AdminLoginInterceptor implements HandlerInterceptor{
 	public boolean  preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
 		String requestURI = request.getRequestURI();
 		HttpSession session = request.getSession();
-		session.setAttribute(SessionConstant.SESSION_USER_AUTH_KEY, AppConfig.ORDER_AUTH);
+//		session.setAttribute(SessionConstant.SESSION_USER_AUTH_KEY, AppConfig.ORDER_AUTH);
 		Object attribute = session.getAttribute(SessionConstant.SESSION_USER_LOGIN_KEY);
 		if(attribute == null){
 			log.info("用户还未登录或者session失效,重定向到登录页面,当前URL=" + requestURI);

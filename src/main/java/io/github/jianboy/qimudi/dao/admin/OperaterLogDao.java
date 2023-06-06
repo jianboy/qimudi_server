@@ -27,6 +27,6 @@ public interface OperaterLogDao extends JpaRepository<OperaterLog, Long> {
 	 * @param size
 	 * @return
 	 */
-	@Query(value="select * from ylrc_operater_log order by create_time desc limit 0,:size",nativeQuery=true)
+	@Query(value="select * from qmd_operater_log order by create_time desc limit 0,:size",nativeQuery=true)
 	List<OperaterLog> findLastestLog(@Param("size")int size);
 }

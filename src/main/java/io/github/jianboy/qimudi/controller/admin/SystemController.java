@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import io.github.jianboy.qimudi.constant.SessionConstant;
 import io.github.jianboy.qimudi.service.admin.DatabaseBakService;
 import io.github.jianboy.qimudi.service.admin.OperaterLogService;
-import io.github.jianboy.qimudi.service.admin.OrderAuthService;
 import io.github.jianboy.qimudi.service.admin.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -27,15 +26,9 @@ import io.github.jianboy.qimudi.bean.PageBean;
 import io.github.jianboy.qimudi.bean.Result;
 import io.github.jianboy.qimudi.config.AppConfig;
 import io.github.jianboy.qimudi.entity.admin.OperaterLog;
-import io.github.jianboy.qimudi.entity.admin.OrderAuth;
 import io.github.jianboy.qimudi.entity.admin.Role;
 import io.github.jianboy.qimudi.entity.admin.User;
 import io.github.jianboy.qimudi.service.common.AccountService;
-import io.github.jianboy.qimudi.service.common.CinemaHallSessionService;
-import io.github.jianboy.qimudi.service.common.CinemaService;
-import io.github.jianboy.qimudi.service.common.MovieService;
-import io.github.jianboy.qimudi.service.common.OrderService;
-import io.github.jianboy.qimudi.service.common.PayLogService;
 import io.github.jianboy.qimudi.util.SessionUtil;
 import io.github.jianboy.qimudi.util.StringUtil;
 import io.github.jianboy.qimudi.util.ValidateEntityUtil;
@@ -49,9 +42,6 @@ import io.github.jianboy.qimudi.util.ValidateEntityUtil;
 @Controller
 public class SystemController {
 
-	
-	@Autowired
-	private OrderAuthService orderAuthService;
 	@Autowired
 	private OperaterLogService operaterLogService;
 	
@@ -61,17 +51,7 @@ public class SystemController {
 	@Autowired
 	private DatabaseBakService databaseBakService;
 	@Autowired
-	private CinemaService cinemaService;
-	@Autowired
-	private MovieService movieService;
-	@Autowired
 	private AccountService accountService;
-	@Autowired
-	private OrderService orderService;
-	@Autowired
-	private CinemaHallSessionService cinemaHallSessionService;
-	@Autowired
-	private PayLogService payLogService;
 	
 	@Value("${show.tips.text}")
 	private String showTipsText;
@@ -167,16 +147,6 @@ public class SystemController {
 	public String index(Model model){
 		model.addAttribute("operatorLogs", operaterLogService.findLastestLog(10));
 		model.addAttribute("userTotal", accountService.count());
-		model.addAttribute("movieTotal", movieService.count());
-		model.addAttribute("cinemaTotal", cinemaService.count());
-		model.addAttribute("orderTotal", orderService.count());
-		model.addAttribute("cinemaHallSessionTotal", cinemaHallSessionService.count());
-		model.addAttribute("payLogTotal", payLogService.count());
-		model.addAttribute("paySuccessTotal", payLogService.countPaySuccess());
-		model.addAttribute("moneyTotal", movieService.sumTotalMoney());
-		model.addAttribute("allPayLogList", payLogService.statsAll(5));
-		model.addAttribute("paidPayLogList", payLogService.statsPaid(5));
-		model.addAttribute("topMovieList", movieService.findTopMoneyList());
 		model.addAttribute("showTipsText", showTipsText);
 		model.addAttribute("showTipsUrlText", showTipsUrlText);
 		model.addAttribute("showTipsUtl", showTipsUtl);
@@ -299,34 +269,7 @@ public class SystemController {
 		}
 		return Result.success(true);
 	}
-	
-	/**
-	 * 验证订单
-	 * @param orderSn
-	 * @param phone
-	 * @return
-	 */
-	@RequestMapping(value="/auth_order",method=RequestMethod.POST)
-	@ResponseBody
-	public Result<Boolean> authOrder(@RequestParam(name="orderSn",required=true)String orderSn,@RequestParam(name="phone",required=true)String phone){
-		if(orderSn.length() < 18){
-			return Result.error(CodeMsg.ORDER_SN_ERROR);
-		}
-		if(phone.length() < 11){
-			return Result.error(CodeMsg.PHONE_ERROR);
-		}
-		if(!StringUtil.authOrder(orderSn, phone)){
-			return Result.error(CodeMsg.ORDER_AUTH_ERROR);
-		}
-		OrderAuth orderAuth = new OrderAuth();
-		orderAuth.setMac(StringUtil.getMac());
-		orderAuth.setOrderSn(orderSn);
-		orderAuth.setPhone(phone);
-		orderAuthService.save(orderAuth);
-		AppConfig.ORDER_AUTH = 1;
-		return Result.success(true);
-	}
-	
+
 	/**
 	 * 清空整个日志
 	 * @return

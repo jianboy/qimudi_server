@@ -49,7 +49,7 @@
   <div class="lyear-login">
     <div class="login-center">
       <div class="login-header text-center">
-        <a href=""> <img alt="light year admin" src="/admin/images/logo-sidebar.png"></a>
+        <a href=""> <h2>七亩地app IM后台管理系统</h2></a>
       </div>
       <form id="login-form" method="post">
         <div class="form-group has-feedback feedback-left">

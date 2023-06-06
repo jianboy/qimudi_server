@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>${siteName!""}后台管理系统主页</title>
+<title>${siteName!""}</title>
 <#include "../common/header.ftl"/>
 
 </head>
@@ -16,7 +16,7 @@
       
       <!-- logo -->
       <div id="logo" class="sidebar-header">
-        <a href="index.html"><img src="/admin/images/logo-sidebar.png" title="${siteName!""}" alt="${siteName!""}" /></a>
+        <a href="index.html"><h2>七亩地IM</h2></a>
       </div>
       <div class="lyear-layout-sidebar-scroll"> 
         <#include "../common/left-menu.ftl"/>
@@ -32,31 +32,7 @@
       
       <div class="container-fluid">
         
-        <div class="row">
-          <div class="col-sm-6 col-lg-3">
-            <div class="card bg-primary">
-              <div class="card-body clearfix">
-                <div class="pull-right">
-                  <p class="h6 text-white m-t-0">入驻影院</p>
-                  <p class="h3 text-white m-b-0">${cinemaTotal!"0"}</p>
-                </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-movie fa-1-5x"></i></span> </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-6 col-lg-3">
-            <div class="card bg-danger">
-              <div class="card-body clearfix">
-                <div class="pull-right">
-                  <p class="h6 text-white m-t-0">电影总数</p>
-                  <p class="h3 text-white m-b-0">${movieTotal!"0"}</p>
-                </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-film fa-1-5x"></i></span> </div>
-              </div>
-            </div>
-          </div>
-          
+
           <div class="col-sm-6 col-lg-3">
             <div class="card bg-success">
               <div class="card-body clearfix">
@@ -68,69 +44,7 @@
               </div>
             </div>
           </div>
-          
-          <div class="col-sm-6 col-lg-3">
-            <div class="card bg-purple">
-              <div class="card-body clearfix">
-                <div class="pull-right">
-                  <p class="h6 text-white m-t-0">累计订单</p>
-                  <p class="h3 text-white m-b-0">${orderTotal!"0"}</p>
-                </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-keyboard-close fa-1-5x"></i></span> </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-lg-3">
-            <div class="card bg-primary">
-              <div class="card-body clearfix">
-                <div class="pull-right">
-                  <p class="h6 text-white m-t-0">放映场次</p>
-                  <p class="h3 text-white m-b-0">${cinemaHallSessionTotal!"0"}</p>
-                </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-lightbulb fa-1-5x"></i></span> </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-6 col-lg-3">
-            <div class="card bg-danger">
-              <div class="card-body clearfix">
-                <div class="pull-right">
-                  <p class="h6 text-white m-t-0">充值记录总数</p>
-                  <p class="h3 text-white m-b-0">${payLogTotal!"0"}</p>
-                </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-cash-multiple fa-1-5x"></i></span> </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-6 col-lg-3">
-            <div class="card bg-success">
-              <div class="card-body clearfix">
-                <div class="pull-right">
-                  <p class="h6 text-white m-t-0">充值成功数</p>
-                  <p class="h3 text-white m-b-0">${paySuccessTotal!"0"}</p>
-                </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-cash fa-1-5x"></i></span> </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-6 col-lg-3">
-            <div class="card bg-purple">
-              <div class="card-body clearfix">
-                <div class="pull-right">
-                  <p class="h6 text-white m-t-0">累计票房</p>
-                  <p class="h3 text-white m-b-0">${moneyTotal!"0"}(元)</p>
-                </div>
-                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-currency-cny fa-1-5x"></i></span> </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+
         <ylrc_auth />
         <div class="row" id="show-copyright" style="display:none;">
           <div class="col-sm-12 col-lg-12">
@@ -145,32 +59,7 @@
             </div>
           </div>
         </div>
-         
-        
-        <div class="row">
-          
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-header"><h4>最近一周充值记录图</h4></div>
-              <div class="card-body">
-                <canvas id="chart-line-3"></canvas>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-header"><h4>票房排行榜前五</h4></div>
-              <div class="card-body">
-                <canvas id="chart-vbar-1"></canvas>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        
-      </div>
-      
+
     </main>
     <!--End 页面主要内容-->
   </div>

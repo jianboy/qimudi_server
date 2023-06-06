@@ -28,7 +28,6 @@
               <ul class="dropdown-menu dropdown-menu-right">
                 <li> <a href="/system/update_userinfo"><i class="mdi mdi-account"></i> 个人信息</a> </li>
                 <li> <a href="/system/update_pwd"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-                <li> <a href="/home/index/index" target="_blank"><i class="mdi mdi-home"></i>进入前台</a> </li>
                 <li class="divider"></li>
                 <li> <a href="/system/logout"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
               </ul>
