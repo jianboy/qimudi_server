@@ -19,7 +19,7 @@ import io.github.jianboy.qimudi.entity.common.BaseEntity;
  *
  */
 @Entity
-@Table(name="ylrc_role")
+@Table(name="qmd_role")
 @EntityListeners(AuditingEntityListener.class)
 public class Role extends BaseEntity{
 

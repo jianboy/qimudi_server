@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  *
  */
 @Entity
-@Table(name="ylrc_news_category")
+@Table(name="qmd_news_category")
 @EntityListeners(AuditingEntityListener.class)
 public class NewsCategory extends BaseEntity {
 

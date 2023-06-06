@@ -19,7 +19,7 @@ import io.github.jianboy.qimudi.bean.CinemaSessionType;
  *
  */
 @Entity
-@Table(name="ylrc_cinema_hall_session")
+@Table(name="qmd_cinema_hall_session")
 @EntityListeners(AuditingEntityListener.class)
 public class CinemaHallSession extends BaseEntity {
 

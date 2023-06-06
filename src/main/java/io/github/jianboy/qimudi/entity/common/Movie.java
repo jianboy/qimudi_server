@@ -24,7 +24,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  */
 @Entity
-@Table(name="ylrc_movie")
+@Table(name="qmd_movie")
 @EntityListeners(AuditingEntityListener.class)
 public class Movie extends BaseEntity {
 

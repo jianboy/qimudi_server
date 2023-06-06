@@ -18,7 +18,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  *
  */
 @Entity
-@Table(name="ylrc_pay_log")
+@Table(name="qmd_pay_log")
 @EntityListeners(AuditingEntityListener.class)
 public class PayLog extends BaseEntity {
 

@@ -12,7 +12,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import io.github.jianboy.qimudi.entity.common.BaseEntity;
 
 @Entity
-@Table(name="ylrc_database_bak")
+@Table(name="qmd_database_bak")
 @EntityListeners(AuditingEntityListener.class)
 public class DatabaseBak extends BaseEntity{
 

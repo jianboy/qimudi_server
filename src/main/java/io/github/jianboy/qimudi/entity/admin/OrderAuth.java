@@ -14,7 +14,7 @@ import io.github.jianboy.qimudi.entity.common.BaseEntity;
 
 
 @Entity
-@Table(name="ylrc_order_auth")
+@Table(name="qmd_order_auth")
 @EntityListeners(AuditingEntityListener.class)
 public class OrderAuth extends BaseEntity{
 	

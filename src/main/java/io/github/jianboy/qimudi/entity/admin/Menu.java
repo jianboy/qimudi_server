@@ -18,7 +18,7 @@ import io.github.jianboy.qimudi.entity.common.BaseEntity;
  *
  */
 @Entity
-@Table(name="ylrc_menu")
+@Table(name="qmd_menu")
 @EntityListeners(AuditingEntityListener.class)
 public class Menu extends BaseEntity{
 

@@ -15,7 +15,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  *
  */
 @Entity
-@Table(name="ylrc_account")
+@Table(name="qmd_account")
 @EntityListeners(AuditingEntityListener.class)
 public class Account extends BaseEntity {
 

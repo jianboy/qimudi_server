@@ -17,7 +17,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  *
  */
 @Entity
-@Table(name="ylrc_order_item")
+@Table(name="qmd_order_item")
 @EntityListeners(AuditingEntityListener.class)
 public class OrderItem extends BaseEntity {
 

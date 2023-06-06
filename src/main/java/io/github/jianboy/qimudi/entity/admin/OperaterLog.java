@@ -13,7 +13,7 @@ import io.github.jianboy.qimudi.entity.common.BaseEntity;
 
 
 @Entity
-@Table(name="ylrc_operater_log")
+@Table(name="qmd_operater_log")
 @EntityListeners(AuditingEntityListener.class)
 public class OperaterLog extends BaseEntity{
 	

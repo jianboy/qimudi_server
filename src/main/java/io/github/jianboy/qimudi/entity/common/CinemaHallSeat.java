@@ -15,7 +15,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  *
  */
 @Entity
-@Table(name="ylrc_cinema_hall_seat")
+@Table(name="qmd_cinema_hall_seat")
 @EntityListeners(AuditingEntityListener.class)
 public class CinemaHallSeat extends BaseEntity {
 
